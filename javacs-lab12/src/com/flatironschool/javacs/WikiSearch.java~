@@ -60,20 +60,8 @@ public class WikiSearch {
 	 * @return New WikiSearch object.
 	 */
 	public WikiSearch or(WikiSearch that) {
-        Map <String, Integer> temp = new HashMap <String, Integer>();
-        // Or: sum up relevances for terms in either set of keys
-        for (String term: map.keySet())
-        {
-            temp.put(term, this.getRelevance(term));           
-        }
-        for (String term: that.map.keySet())
-        {
-        	if (temp.containsKey(term))
-        		temp.put(term, this.getRelevance(term) + that.getRelevance(term));
-    		else // New term not in first Search object
-    			temp.put(term, that.getRelevance(term)); 
-        }
-		return new WikiSearch(temp);
+        // FILL THIS IN!
+		return null;
 	}
 	
 	/**
@@ -83,8 +71,8 @@ public class WikiSearch {
 	 * @return New WikiSearch object.
 	 */
 	public WikiSearch and(WikiSearch that) {
-        Map <String, Integer> temp = new HashMap <String, Integer>();
-        // And: sum up relevances for terms which exist in both sets of keys
+        Map <String, Integer> temp = new HashMap<String, Integer>();
+        // And: sum up relevances
         for (String term: map.keySet())
         {
             if (that.map.containsKey(term))
@@ -100,12 +88,8 @@ public class WikiSearch {
 	 * @return New WikiSearch object.
 	 */
 	public WikiSearch minus(WikiSearch that) {
-        Map <String, Integer> temp = new HashMap <String, Integer>();
-        // Minus: include results in first map, but NOT second
-        for (String term: map.keySet())
-        	if (!that.map.containsKey(term))
-        		temp.put(term, this.getRelevance(term));
-		return new WikiSearch(temp);
+        // FILL THIS IN!
+		return null;
 	}
 	
 	/**
@@ -126,16 +110,8 @@ public class WikiSearch {
 	 * @return List of entries with URL and relevance.
 	 */
 	public List<Entry<String, Integer>> sort() {
-        List<Entry<String, Integer>> temp = new LinkedList<Entry<String, Integer>>();
-        for (Map.Entry<String, Integer> entry : map.entrySet())
-			temp.add(entry);
-		Comparator<Entry<String, Integer>> compareFunc = new Comparator<Entry<String, Integer>>(){		
-			public int compare(Entry<String, Integer> w1, Entry<String, Integer> w2) {
-				return (w1.getValue().compareTo(w2.getValue()));
-			}
-		};
-		Collections.sort(temp, compareFunc);
-		return temp;
+        // FILL THIS IN!
+		return null;
 	}
 
 	/**
